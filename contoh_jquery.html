@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Belajar jquery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Ubah Warna Latar Belakang</h2>
+
+<button id="btnUbahWarna">Ubah Warna</button>
+
+<script>
+$(document).ready(function(){
+  $("#btnUbahWarna").click(function(){
+    $("body").css("background-color", "yellow");
+  });
+});
+</script>
+
+</body>
+</html>

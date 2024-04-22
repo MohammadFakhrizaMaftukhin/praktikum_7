@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Belajar jquery</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		var progressBar = $( "<div/>", {
+			id: "progressbar",
+			style: "width: 200px;"
+		} ).appendTo( "body" );
+		progressBar.progressbar({
+			value: 0
+		});
+
+		function simulateDownload() {
+			var totalBytes = 100000;
+			var downloadCount = 0;
+			var intervalId = setInterval( function() {
+				downloadCount += Math.floor( Math.random() * 1000 );
+				var percentage = ( downloadCount / totalBytes ) * 100;
+				progressBar.progressbar( "value", percentage );
+				if ( downloadCount >= totalBytes ) {
+					clearInterval( intervalId );
+					progressBar.dialog( "close" );
+				}
+			}, 100 );
+		}
+
+		var dialog = $( "<div/>", {
+			id: "dialog",
+			text: "Download starting...",
+			style: "width: 300px;"
+		} ).dialog({
+			title: "Download",
+			modal: true,
+			buttons: {
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+
+		dialog.parent().find( ".ui-dialog-buttonpane" ).prepend( progressBar );
+
+		simulateDownload();
+	} );
+	</script>
+</head>
+<body>
+</body>
+</html>

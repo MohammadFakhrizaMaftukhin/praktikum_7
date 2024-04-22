@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Belajar jquery</title>
+    <style>
+    #menu {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+    }
+    #menu li {
+        display: inline;
+    }
+    #menu li a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    #menu li a:hover {
+        background-color: #111;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#menu").menu();
+    });
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>  
+</body>
+</html>
